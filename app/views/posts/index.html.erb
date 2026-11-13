@@ -1,0 +1,37 @@
+<h1>Post Search</h1>
+
+<%= search_form_for @q, url: posts_path do |f| %>
+  <div>
+    <%= f.label :title_cont, "Title" %>
+    <%= f.search_field :title_cont %>
+  </div>
+
+  <div>
+    <%= f.label :content_cont, "Content" %>
+    <%= f.search_field :content_cont %>
+  </div>
+
+  <div>
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
+
+<hr>
+
+<p><%= link_to "New Post", new_post_path %></p>
+<p><%= link_to "My Page", mypage_path %></p>
+
+<h2>Post List</h2>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3>
+      <%= link_to post.title, post_path(post) %>
+    </h3>
+
+    <p>Content: <%= post.content %></p>
+    <p>User: <%= post.user.name %></p>
+  </div>
+
+  <hr>
+<% end %>

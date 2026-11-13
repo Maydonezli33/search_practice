@@ -1,0 +1,10 @@
+<h1>My Page</h1>
+
+<p>Name: <%= current_user.name %></p>
+<p>Email: <%= current_user.email %></p>
+
+<p><%= link_to "User Search", users_list_path %></p>
+<p><%= link_to "Post Search", posts_path %></p>
+<p><%= link_to "New Post", new_post_path %></p>
+
+<%= button_to "Logout", destroy_user_session_path, method: :delete %>

@@ -1,0 +1,18 @@
+<h1>User Search</h1>
+
+<%= search_form_for @q, url: users_list_path do |f| %>
+  <%= f.label :name_cont, "User Name" %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<hr>
+
+<% @users.each do |user| %>
+  <p>
+    <%= user.name %> -
+    <%= user.email %>
+  </p>
+<% end %>
+
+<%= link_to "My Page", mypage_path %>
